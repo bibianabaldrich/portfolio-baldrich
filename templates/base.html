@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bibiana Baldrich Portfolio</title>
+
+    <!-- favicon -->
+
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename= 'assets/images/favicon-16x16.png')}}" />
+    <!-- Estilos css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}" />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}" />
+ 
+    <!-- Fuentes -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/v4-shims.css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- scripts -->
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12" type="text/javascript"></script>
+
+</head>
+
+<body>
+    {% block navbar %}
+    {% include 'navbar.html' %}
+    {% endblock %}
+
+    {% block contenido %}
+    {%endblock%}
+    
+
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+
+</html>
