@@ -1,364 +1,335 @@
 {% extends 'base.html'%}
 
+{% block navbar %}
+<!-- Menu -->
+<div class="menunavegacion">
+    <div class="logo">
+        <a href="#">
+            <img src="../static/assets/images/logobibi.png" alt="Icon of Portfolio" />
+        </a>
+    </div>
+
+    <!-- Nav bar -->
+    <div class="menu">
+
+
+        <label for="toggle-1" class="toggle-menu">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </label>
+        <input type="checkbox" id="toggle-1">
+
+        <nav class="nav-menu">
+            <ul class="slide">
+
+                <li class="nav-item"><a class="item-menu" href="#">{{barranavegacion[0]}}</a></li>
+                <li class="nav-item"><a class="item-menu" href="#divsobremi">{{barranavegacion[1]}}</a></li>
+                <li class="nav-item"><a class="item-menu" href="#divproyectos">{{barranavegacion[2]}}</a></li>
+                <li class="nav-item"><a class="item-menu" href="#divcontacto">{{barranavegacion[3]}}</a></li>
+                <li class="nav-item">
+                    <a href="en.html" class="item-menu">{{barranavegacion[4]}}</a>
+                </li>
+                <li class="nav-item">
+                    <button onclick="darkmode()" class="button-dark"> <img id="container-modo-icono" alt="icon theme"
+                            src="../static/assets/images/luna.svg" alt="burger Menu"
+                            class="container-modo__icono"></button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+{% endblock %}
+
+
+
 {% block contenido %}
-<main>
-    <section class="divpresentacion" id="divpresentacion">
-        <p class="titulo-soy">{{soy}}</p>
-        <h1 class="nombre">Bibiana Baldrich</h1>
+<section class="divpresentacion" id="divpresentacion">
+    <p class="titulo-soy">{{soy}}</p>
+    <h1 class="nombre">Bibiana Baldrich</h1>
 
-        <h2 class="profesion"> <span class="typed" id="typed"> </span></h2>
-        <div class="boton-presentacion">
-            <a target="_blank" rel="noreferrer" href="../static/assets/pdf/BibianaBaldricCV.pdf" class="cv_button">{{dw}}</a>
+    <h2 class="profesion"> <span class="typed" id="typed"> </span></h2>
+    <div class="boton-presentacion">
+        <a target="_blank" rel="noreferrer" href="../static/assets/pdf/BibianaBaldricCV.pdf"
+            class="cv_button">{{dw[0]}}</a>
+    </div>
+
+    <script>
+        var options = {
+            strings: ['{{cargo[0]}}', '{{cargo[1]}}', '{{cargo[2]}}'],
+            typeSpeed: 75,
+            startDelay: 300, // Tiempo de retraso en iniciar la animacion. Aplica tambien cuando termina y vuelve a iniciar,
+            backSpeed: 75, // Velocidad en milisegundos para borrrar una letra,
+            smartBackspace: true, // Eliminar solamente las palabras que sean nuevas en una cadena de texto.
+            shuffle: false, // Alterar el orden en el que escribe las palabras.
+            backDelay: 1500, // Tiempo de espera despues de que termina de escribir una palabra.
+            loop: true, // Repetir el array de strings
+            loopCount: false, // Cantidad de veces a repetir el array.  false = infinite
+            showCursor: false, // Mostrar cursor palpitanto
+
+            contentType: 'html', // 'html' o 'null' para texto sin formato
+        }
+        var typed = new Typed("#typed", options);
+    </script>
+
+    <div class="boton-presentacion" id="btn-contacto">
+        <a href="#divcontacto" class="btn-iniciar-sesion">{{dw[1]}}</a>
+    </div>
+</section>
+
+<section class="divsobremi" id="divsobremi">
+    <div class="divtitulosesion">
+        <div class="lineader">
+            <hr size="3">
+        </div>
+        <div class="titulosesion">
+            <h3 class="textotitulosesion">{{sobremi[0]}}</h3>
         </div>
 
-        <script>
-            var options = {
-                strings: ['Diseñadora web', 'Desarrolladora Web', 'Diseñadora web'],
-                typeSpeed: 75,
-                startDelay: 300, // Tiempo de retraso en iniciar la animacion. Aplica tambien cuando termina y vuelve a iniciar,
-                backSpeed: 75, // Velocidad en milisegundos para borrrar una letra,
-                smartBackspace: true, // Eliminar solamente las palabras que sean nuevas en una cadena de texto.
-                shuffle: false, // Alterar el orden en el que escribe las palabras.
-                backDelay: 1500, // Tiempo de espera despues de que termina de escribir una palabra.
-                loop: true, // Repetir el array de strings
-                loopCount: false, // Cantidad de veces a repetir el array.  false = infinite
-                showCursor: false, // Mostrar cursor palpitanto
-
-                contentType: 'html', // 'html' o 'null' para texto sin formato
-            }
-            var typed = new Typed("#typed", options);
-        </script>
-
-        <div class="boton-presentacion" id="btn-contacto">
-            <a href="#divcontacto" class="btn-iniciar-sesion">Contactar</a>
+        <div class="lineaizq">
+            <hr size=2>
         </div>
-    </section>
+    </div>
 
-    <section class="divsobremi" id="divsobremi">
-        <div class="divtitulosesion">
-            <div class="lineader">
-                <hr size="3">
-            </div>
-            <div class="titulosesion">
-                <h3 class="textotitulosesion">SOBRE MI</h3>
-            </div>
+    <div class="contenidosobremi">
+        <div class="divsobremi-texto">
+            <p>
+                {{sobremi[1]}}
+                <br>
+                <br>
+                {{sobremi[2]}}
+                <br>
+                {{sobremi[3]}}
+            </p>
+        </div>
+        <div class="divsobremi-foto">
+            <div class="mifoto"></div>
+        </div>
+    </div>
 
-            <div class="lineaizq">
-                <hr size=2>
-            </div>
+</section>
+
+<section class="divtecnologias" id="divtecnologias">
+
+    <div class="divtitulosesion">
+        <div class="lineader">
+            <hr size="3">
+        </div>
+        <div class="titulosesion">
+            <h3 class="textotitulosesion">{{tec[0]}}</h3>
         </div>
 
-        <div class="contenidosobremi">
-            <div class="divsobremi-texto">
-                <p>
-                    Mi nombre es Bibiana Baldrich, soy estudiante de de Ingeniería en Software en la
-                    Tecnológico de Antioquia tengo conocimientos en desarrollo web, desarrollo de aplicaciones
-                    móviles, manejo de bases de datos, diseño de mockups y prototipado de páginas y aplicaciones en
-                    adobe XD y Figma.
+        <div class="lineaizq">
+            <hr size=2>
+        </div>
+    </div>
+    <div class="divtecnologias-contenedor">
+        {% set i=0 %}
+        {% for items in listtec  %}
+        <div class="divtecnologias-item">
+            <div class="imagen-tecnologia-item" id="img-tec-{{loop.index}}"></div>
+            {%set i=i+1%}
+            <p>{{items}}</p>
+        </div>
+        {% endfor %}
 
-                    <br>
-                    <br>
-                    Estoy en decimo semestre, he aprendido y se implementar todas las etapas del desarrollo de un
-                    software desde el análisis de requisitos, diseño de la arquitectura, Diseño de la interfaz
-                    gráfica, Desarrollo del software hasta las pruebas y la documentación correspondiente.
+    </div>
 
-                    <br>
-                    Soy una apasionada por aprender cosas nuevas.
-                </p>
-            </div>
-            <div class="divsobremi-foto">
-                <div class="mifoto"></div>
-            </div>
+</section>
+
+<section class="divservicios" id="divservicios">
+    <div class="divtitulosesion">
+        <div class="lineader">
+            <hr size="3">
+        </div>
+        <div class="titulosesion">
+            <h3 class="textotitulosesion">{{tec[1]}}</h3>
         </div>
 
-    </section>
-
-    <section class="divtecnologias" id="divtecnologias">
-
-        <div class="divtitulosesion">
-            <div class="lineader">
-                <hr size="3">
-            </div>
-            <div class="titulosesion">
-                <h3 class="textotitulosesion">TECNOLOGIAS</h3>
-            </div>
-
-            <div class="lineaizq">
-                <hr size=2>
-            </div>
+        <div class="lineaizq">
+            <hr size=2>
         </div>
-        <div class="divtecnologias-contenedor">
+    </div>
+
+    <div class="divservicios-contenedor">
+
+        {% for key,us in servi.items() %}
+        <div class="divservicios-item">
+            <div class="servicio-imagen"></div>
+            <h3 class="servicio-nombre">{{key}}</h3>
+            <p>
+                {{us}}
+            </p>
+        </div>
+        {% endfor %}
+
+    </div>
 
 
-            <div class="divtecnologias-item">
-                <div class="imagen-tecnologia-item" id="img-tec-1"></div>
-                <p>HTML5</p>
+</section>
+
+<section class="divproyectos" id="divproyectos">
+    <div class="divtitulosesion">
+        <div class="lineader">
+            <hr size="3">
+        </div>
+        <div class="titulosesion">
+            <h3 class="textotitulosesion">{{tec[2]}}</h3>
+        </div>
+
+        <div class="lineaizq">
+            <hr size=2>
+        </div>
+    </div>
+
+    <div class="contenedor-proyectos">
+        <div class="divproyectos-item">
+            <div class="imagen-proyecto">
+
+                <div class="carousel">
+                    <button id="retroceder" class="botones-slide">
+                        <img src="../static/assets/images/chevron-left-solid.svg" alt="" class="botones-paso">
+                    </button>
+                    <div id="imagen"></div>
+                    <button id="avanzar" class="botones-slide">
+                        <img src="../static/assets/images/chevron-right-solid.svg" alt="" class="botones-paso">
+                    </button>
+                </div>
+                <!-- ---------------------- -->
+                <div class="controles">
+                    <button id="play">Play</button>
+                    <button id="stop" disabled>Stop</button>
+                </div>
+                <!-- ---------------------- -->
             </div>
-
-
-            <div class="divtecnologias-item">
-                <div class="imagen-tecnologia-item" id="img-tec-2"></div>
-                <p>CSS3</p>
-            </div>
-
-
-            <div class="divtecnologias-item">
-                <div class="imagen-tecnologia-item" id="img-tec-3"></div>
+            <div class="list-tec-proyecto">
+                <p>HTML</p>
+                <p>CSS</p>
                 <p>JavaScript</p>
-            </div>
-
-
-            <div class="divtecnologias-item">
-                <div class="imagen-tecnologia-item" id="img-tec-4"></div>
                 <p>PHP</p>
             </div>
+            <div class="info-proyecto">
+                <h3 class="titulo-proyecto">Conversor AFND a AFD</h3>
+                <p>Pagina web para convertir un automata finito no deterministico en un automata finito
+                    deterministico.</p>
+                <a href="http://afndaafn.atspace.tv/" target="_blank"><i class="fas fa-link"></i></a>
+                <a href="https://github.com/bibianabaldrich/AFNDaAFD" target="_blank"><i class="fab fa-github"></i></a>
 
+            </div>
+        </div>
+        <div class="divproyectos-item">
+            <div class="imagen-proyecto">
 
-            <div class="divtecnologias-item">
-                <div class="imagen-tecnologia-item" id="img-tec-5"></div>
-                <p>Java</p>
+                <div class="carousel">
+                    <button id="retroceder" class="botones-slide">
+                        <img src="../static/assets/images/chevron-left-solid.svg" alt="" class="botones-paso">
+                    </button>
+                    <div id="imagen"></div>
+                    <button id="avanzar" class="botones-slide">
+                        <img src="../static/assets/images/chevron-right-solid.svg" alt="" class="botones-paso">
+                    </button>
+                </div>
+                <!-- ---------------------- -->
+                <div class="controles">
+                    <button id="play">Play</button>
+                    <button id="stop" disabled>Stop</button>
+                </div>
+                <!-- ---------------------- -->
+            </div>
+            <div class="list-tec-proyecto">
+                <p>HTML</p>
+                <p>CSS</p>
+                <p>JavaScript</p>
+                <p>PHP</p>
+            </div>
+            <div class="info-proyecto">
+                <h3 class="titulo-proyecto">Vive Mercado</h3>
+                <p>Pagina web del Mercado ubicado en Quibdo Choco</p>
+                <!-- <a href=""><i class="far fa-image"></i></a> -->
+                <a href="https://vivemercado.000webhostapp.com/" target="_blank"><i class="fas fa-link"></i></a>
+                <a href="https://github.com/bibianabaldrich/AFNDaAFD" target="_blank"><i class="fab fa-github"></i></a>
+
+            </div>
+        </div>
+        <div class="divproyectos-item">
+            <div class="imagen-proyecto">
+
+                <div class="carousel">
+                    <button id="retroceder" class="botones-slide">
+                        <img src="../static/assets/images/chevron-left-solid.svg" alt="" class="botones-paso">
+                    </button>
+                    <div id="imagen"></div>
+                    <button id="avanzar" class="botones-slide">
+                        <img src="../static/assets/images/chevron-right-solid.svg" alt="" class="botones-paso">
+                    </button>
+                </div>
+                <!-- ---------------------- -->
+                <div class="controles">
+                    <button id="play">Play</button>
+                    <button id="stop" disabled>Stop</button>
+                </div>
+                <!-- ---------------------- -->
             </div>
 
 
-            <div class="divtecnologias-item">
-                <div class="imagen-tecnologia-item" id="img-tec-6"></div>
-                <p>MySQL</p>
+            <div class="list-tec-proyecto">
+                <p>HTML</p>
+                <p>CSS</p>
+                <p>JavaScript</p>
+                <p>PHP</p>
             </div>
+            <div class="info-proyecto">
+                <h3 class="titulo-proyecto">Control de Accionables</h3>
+                <p>Pagina web para los agentes de accionables, para el control de su gestion en el mes.</p>
+                <!-- <a href=""><i class="far fa-image"></i></a> -->
+                <a href="#"><i class="fas fa-link"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
 
-
-            <div class="divtecnologias-item">
-                <div class="imagen-tecnologia-item" id="img-tec-7"></div>
-                <p>Bootstrap 5</p>
-            </div>
-
-
-            <div class="divtecnologias-item">
-                <div class="imagen-tecnologia-item" id="img-tec-8"></div>
-                <p>Sass</p>
             </div>
         </div>
 
-    </section>
+    </div>
+</section>
 
-    <section class="divservicios" id="divservicios">
-        <div class="divtitulosesion">
-            <div class="lineader">
-                <hr size="3">
-            </div>
-            <div class="titulosesion">
-                <h3 class="textotitulosesion">SERVICIOS</h3>
-            </div>
-
-            <div class="lineaizq">
-                <hr size=2>
-            </div>
+<section class="divcontacto" id="divcontacto">
+    <div class="divtitulosesion">
+        <div class="lineader">
+            <hr size="3">
+        </div>
+        <div class="titulosesion">
+            <h3 class="textotitulosesion">{{tec[3]}}</h3>
         </div>
 
-        <div class="divservicios-contenedor">
-
-            <div class="divservicios-item">
-                <div class="servicio-imagen"></div>
-                <h3 class="servicio-nombre">Maquetacion Web</h3>
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam a quod quidem quasi
-                    recusandae. Aliquid reiciendis praesentium harum quaerat.
-                </p>
-            </div>
-
-            <div class="divservicios-item">
-                <div class="servicio-imagen"></div>
-                <h3 class="servicio-nombre">Diseño Web</h3>
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam a quod quidem quasi
-                    recusandae. Aliquid reiciendis praesentium harum quaerat.
-                </p>
-            </div>
-
-            <div class="divservicios-item">
-                <div class="servicio-imagen"></div>
-                <h3 class="servicio-nombre">Diseño UI/UX</h3>
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam a quod quidem quasi
-                    recusandae. Aliquid reiciendis praesentium harum quaerat.
-                </p>
-            </div>
-
-            <div class="divservicios-item">
-                <div class="servicio-imagen"></div>
-                <h3 class="servicio-nombre">Desarrollo Web</h3>
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam a quod quidem quasi
-                    recusandae. Aliquid reiciendis praesentium harum quaerat.
-                </p>
-            </div>
-
-
+        <div class="lineaizq">
+            <hr size=2>
         </div>
+    </div>
 
+    <h4>¡Envíame un correo!</h4>
+    <form action="">
+        <input class="contacto-form" type="text" name="nombre" id="" placeholder="&#xf007;   Nombre">
 
-    </section>
+        <input class="contacto-form" type="email" name="correo" id="" placeholder="&#xf0e0;   Correo">
+        <input class="contacto-form" type="number" name="numero" id="" placeholder="&#xf095;   Telefono Celular">
+        <input class="input-mensaje contacto-form" type="text" name="mensaje" id="" placeholder="&#xf075;   Mensaje">
+        <input class="btn-submit" type="submit" value="Enviar Mensaje">
+    </form>
+</section>
 
-    <section class="divproyectos" id="divproyectos">
-        <div class="divtitulosesion">
-            <div class="lineader">
-                <hr size="3">
-            </div>
-            <div class="titulosesion">
-                <h3 class="textotitulosesion">PROYECTOS</h3>
-            </div>
+<section class="divredessociales" id="divredessociales">
+    <a href="https://www.linkedin.com/in/bibianabaldrich/"><i class="fab fa-linkedin"></i></a>
+    <a href="https://github.com/bibianabaldrich"><i class="fab fa-github-square"></i></a>
+    <a href="https://twitter.com/bibianabaldrich"> <i class="fab fa-twitter-square"></i></a>
+    <a href="https://www.instagram.com/bibianabaldrich/"> <i class="fab fa-instagram-square"></i></a>
+    <a href="https://wa.link/hprqvb"> <i class="fab fa-whatsapp-square"></i></a>
+    <a href="https://www.facebook.com/bibianabaldrich"> <i class="fab fa-facebook-square"></i></a>
+</section>
+{%endblock%}
 
-            <div class="lineaizq">
-                <hr size=2>
-            </div>
-        </div>
-
-        <div class="contenedor-proyectos">
-            <div class="divproyectos-item">
-                <div class="imagen-proyecto">
-
-                    <div class="carousel">
-                        <button id="retroceder" class="botones-slide">
-                            <img src="../static/assets/images/chevron-left-solid.svg" alt="" class="botones-paso">
-                        </button>
-                        <div id="imagen"></div>
-                        <button id="avanzar" class="botones-slide">
-                            <img src="../static/assets/images/chevron-right-solid.svg" alt="" class="botones-paso">
-                        </button>
-                    </div>
-                    <!-- ---------------------- -->
-                    <div class="controles">
-                        <button id="play">Play</button>
-                        <button id="stop" disabled>Stop</button>
-                    </div>
-                    <!-- ---------------------- -->
-                </div>
-                <div class="list-tec-proyecto">
-                    <p>HTML</p>
-                    <p>CSS</p>
-                    <p>JavaScript</p>
-                    <p>PHP</p>
-                </div>
-                <div class="info-proyecto">
-                    <h3 class="titulo-proyecto">Conversor AFND a AFD</h3>
-                    <p>Pagina web para convertir un automata finito no deterministico en un automata finito
-                        deterministico.</p>
-                    <a href="http://afndaafn.atspace.tv/" target="_blank"><i class="fas fa-link"></i></a>
-                    <a href="https://github.com/bibianabaldrich/AFNDaAFD" target="_blank"><i
-                            class="fab fa-github"></i></a>
-
-                </div>
-            </div>
-            <div class="divproyectos-item">
-                <div class="imagen-proyecto">
-
-                    <div class="carousel">
-                        <button id="retroceder" class="botones-slide">
-                            <img src="../static/assets/images/chevron-left-solid.svg" alt="" class="botones-paso">
-                        </button>
-                        <div id="imagen"></div>
-                        <button id="avanzar" class="botones-slide">
-                            <img src="../static/assets/images/chevron-right-solid.svg" alt="" class="botones-paso">
-                        </button>
-                    </div>
-                    <!-- ---------------------- -->
-                    <div class="controles">
-                        <button id="play">Play</button>
-                        <button id="stop" disabled>Stop</button>
-                    </div>
-                    <!-- ---------------------- -->
-                </div>
-                <div class="list-tec-proyecto">
-                    <p>HTML</p>
-                    <p>CSS</p>
-                    <p>JavaScript</p>
-                    <p>PHP</p>
-                </div>
-                <div class="info-proyecto">
-                    <h3 class="titulo-proyecto">Vive Mercado</h3>
-                    <p>Pagina web del Mercado ubicado en Quibdo Choco</p>
-                    <!-- <a href=""><i class="far fa-image"></i></a> -->
-                    <a href="https://vivemercado.000webhostapp.com/" target="_blank"><i class="fas fa-link"></i></a>
-                    <a href="https://github.com/bibianabaldrich/AFNDaAFD" target="_blank"><i
-                            class="fab fa-github"></i></a>
-
-                </div>
-            </div>
-            <div class="divproyectos-item">
-                <div class="imagen-proyecto">
-
-                    <div class="carousel">
-                        <button id="retroceder" class="botones-slide">
-                            <img src="../static/assets/images/chevron-left-solid.svg" alt="" class="botones-paso">
-                        </button>
-                        <div id="imagen"></div>
-                        <button id="avanzar" class="botones-slide">
-                            <img src="../static/assets/images/chevron-right-solid.svg" alt="" class="botones-paso">
-                        </button>
-                    </div>
-                    <!-- ---------------------- -->
-                    <div class="controles">
-                        <button id="play">Play</button>
-                        <button id="stop" disabled>Stop</button>
-                    </div>
-                    <!-- ---------------------- -->
-                </div>
-
-
-                <div class="list-tec-proyecto">
-                    <p>HTML</p>
-                    <p>CSS</p>
-                    <p>JavaScript</p>
-                    <p>PHP</p>
-                </div>
-                <div class="info-proyecto">
-                    <h3 class="titulo-proyecto">Control de Accionables</h3>
-                    <p>Pagina web para los agentes de accionables, para el control de su gestion en el mes.</p>
-                    <!-- <a href=""><i class="far fa-image"></i></a> -->
-                    <a href="#"><i class="fas fa-link"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
-
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="divcontacto" id="divcontacto">
-        <div class="divtitulosesion">
-            <div class="lineader">
-                <hr size="3">
-            </div>
-            <div class="titulosesion">
-                <h3 class="textotitulosesion">CONTACTO</h3>
-            </div>
-
-            <div class="lineaizq">
-                <hr size=2>
-            </div>
-        </div>
-
-        <h4>¡Envíame un correo!</h4>
-        <form action="">
-            <input class="contacto-form" type="text" name="nombre" id="" placeholder="&#xf007;   Nombre">
-
-            <input class="contacto-form" type="email" name="correo" id="" placeholder="&#xf0e0;   Correo">
-            <input class="contacto-form" type="number" name="numero" id=""
-                placeholder="&#xf095;   Telefono Celular">
-            <input class="input-mensaje contacto-form" type="text" name="mensaje" id=""
-                placeholder="&#xf075;   Mensaje">
-            <input class="btn-submit" type="submit" value="Enviar Mensaje">
-        </form>
-    </section>
-
-    <section class="divredessociales" id="divredessociales">
-        <a href="https://www.linkedin.com/in/bibianabaldrich/"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/bibianabaldrich"><i class="fab fa-github-square"></i></a>
-        <a href="https://twitter.com/bibianabaldrich"> <i class="fab fa-twitter-square"></i></a>
-        <a href="https://www.instagram.com/bibianabaldrich/"> <i class="fab fa-instagram-square"></i></a>
-        <a href="https://wa.link/hprqvb"> <i class="fab fa-whatsapp-square"></i></a>
-        <a href="https://www.facebook.com/bibianabaldrich"> <i class="fab fa-facebook-square"></i></a>
-    </section>
-</main>
+{% block footer %}
 <!-- footer -->
 <footer>
     <div class="divpiedepagina">
