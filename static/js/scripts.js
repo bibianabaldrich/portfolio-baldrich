@@ -93,10 +93,9 @@ function darkmode() {
     const containermodoicon = document.getElementById('container-modo-icono');
     //    containermodoicon.classList.toggle('far fa-moon');
     if (document.body.className != "dark") {
-        containermodoicon.src = 'assets/images/sol.svg';
+        containermodoicon.src = 'static/assets/images/sol.svg';
     } else {
-        containermodoicon.src = 'assets/images/luna.svg';
+        containermodoicon.src = 'static/assets/images/luna.svg';
     }
 }
-
 
