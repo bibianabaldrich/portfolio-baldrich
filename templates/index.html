@@ -3,13 +3,12 @@
 {% block contenido %}
 <main>
     <section class="divpresentacion" id="divpresentacion">
-        <p class="titulo-soy">Soy</p>
+        <p class="titulo-soy">{{soy}}</p>
         <h1 class="nombre">Bibiana Baldrich</h1>
 
         <h2 class="profesion"> <span class="typed" id="typed"> </span></h2>
         <div class="boton-presentacion">
-            <a target="_blank" rel="noreferrer" href="../static/assets/pdf/BibianaBaldricCV.pdf" class="cv_button">Descargar
-                HV</a>
+            <a target="_blank" rel="noreferrer" href="../static/assets/pdf/BibianaBaldricCV.pdf" class="cv_button">{{dw}}</a>
         </div>
 
         <script>
@@ -65,10 +64,6 @@
 
                     <br>
                     Soy una apasionada por aprender cosas nuevas.
-
-
-
-
                 </p>
             </div>
             <div class="divsobremi-foto">

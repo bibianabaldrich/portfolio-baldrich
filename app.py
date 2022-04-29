@@ -8,8 +8,22 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    titulo = "Estas en casa"
+    titulopagina = "Portafolio Bibiana Baldrich"
+    soy="Soy"
+    dw="Descargar HV"
+    return render_template("index.html",titulopagina=titulopagina, soy=soy,dw=dw)
+
+@app.route('/es')
+def espanol():
+    titulopagina = "Portafolio Bibiana Baldrich"
     return render_template("index.html")
+
+@app.route('/en')
+def ingles():
+    titulopagina = "Bibiana Baldrich Portafolio"
+    soy="I'm"
+    dw="Download CV"
+    return render_template("index.html",titulopagina=titulopagina, soy=soy,dw=dw)
 
 if __name__ == "__main__":
     app.run(debug=True)
