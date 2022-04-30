@@ -8,21 +8,20 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    barranavegacion = ["Inicio", "Sobre Mi", "Proyectos", "Contacto",'EN']
+    barranavegacion = ["Inicio", "Sobre Mi", "Proyectos", "Contacto",'en']
     titulopagina = "Portafolio Bibiana Baldrich"
     soy="Soy"
     cargo=['Diseñadora web', 'Desarrolladora Web', 'Diseñadora web']
     dw=["Descargar HV","Contactar"]
     return render_template("index.html",barranavegacion=barranavegacion,titulopagina=titulopagina, soy=soy,cargo=cargo,dw=dw,sobremi=sobremi1,tec=tecnoES,servi=serviES,listtec=listtec)
 
-# @app.route('/es')
-# def espanol():
-#     titulopagina = "Portafolio Bibiana Baldrich"
-#     return render_template("index.html")
+@app.route('/es')
+def espanol():
+    return redirect("/")
 
 @app.route('/en')
 def ingles():
-    barranavegacion = ["Home", "About", "Portfolio", "Contact","ES"]
+    barranavegacion = ["Home", "About", "Portfolio", "Contact","es"]
     titulopagina = "Bibiana Baldrich Portafolio"
     soy="I'm"
     cargo=['Wed Design', 'Web Developer', 'Web Design']
